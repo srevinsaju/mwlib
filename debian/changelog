@@ -1,5 +1,6 @@
-mwlib (0.8.5) UNRELEASED; urgency=medium
+mwlib (0.8.5-1) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
+  * Use lang list in the python code
 
- -- Gonzalo Odiard <godiard@gmail.com>  Mon, 13 Jul 2015 16:24:29 -0300
+ -- Gonzalo Odiard <godiard@gmail.com>  Tue, 14 Jul 2015 12:13:41 -0300
