@@ -17,24 +17,24 @@ import distutils.util
 
 
 install_requires=["simplejson>=1.3", "pyparsing>=1.4.11"]
-if sys.version_info[:2] < (2,5):
-    install_requires.append("wsgiref>=0.1.2")
+#if sys.version_info[:2] < (2,5):
+#    install_requires.append("wsgiref>=0.1.2")
 
-execfile(distutils.util.convert_path('mwlib/_version.py')) 
+exec(compile(open(distutils.util.convert_path('mwlib/_version.py'), "rb").read(), distutils.util.convert_path('mwlib/_version.py'), 'exec')) 
 # adds 'version' to local namespace
 
 # we will *not* add support for automatic generation of those files as that
 # might break with source distributions from pypi
 
 if not os.path.exists(distutils.util.convert_path('mwlib/_mwscan.cc')):
-    print "Error: please install re2c from http://re2c.org/ and run make"
+    print("Error: please install re2c from http://re2c.org/ and run make")
     sys.exit(10)
 
 def mtime(fn):
     return os.stat(distutils.util.convert_path(fn)).st_mtime
 
 if mtime("mwlib/_mwscan.cc") < mtime("mwlib/_mwscan.re"):
-    print "Warning: _mwscan.cc is older than _mwscan.re. please run make.\n"
+    print("Warning: _mwscan.cc is older than _mwscan.re. please run make.\n")
     import time
     time.sleep(2)
     
